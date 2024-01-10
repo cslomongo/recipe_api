@@ -8,9 +8,10 @@
 # urls.py
 
 from django.urls import path
-from .views import RecipeCreateView
+from .views import RecipeCreateView, RecipeUpdateDeleteView
 
 urlpatterns = [
     path('', RecipeCreateView.as_view()),
+    path('<int:pk>', RecipeUpdateDeleteView.as_view()),
     # Add other URL patterns as needed
 ]
