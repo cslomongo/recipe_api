@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from .models import Recipe
 from .serializers import RecipeSerializer
 
-class RecipeCreateView(generics.ListCreateAPIView):
+class RecipeCreateView(generics.CreateAPIView):
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
 
@@ -23,4 +23,8 @@ class RecipeCreateView(generics.ListCreateAPIView):
 
 class RecipeUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Recipe.objects.all()
+    serializer_class = RecipeSerializer
+class RecipeListDetail(generics.ListAPIView):
+    queryset = Recipe.objects.all()
+    serializer_class = RecipeSerializer
 

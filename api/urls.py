@@ -8,9 +8,11 @@
 # urls.py
 
 from django.urls import path
-from .views import RecipeCreateView
+from .views import RecipeCreateView, RecipeUpdateDeleteView, RecipeListDetail
 
 urlpatterns = [
-    path('', RecipeCreateView.as_view()),
-    # Add other URL patterns as needed
+    path('create/', RecipeCreateView.as_view(), name='create'),
+    path('<int:pk>/', RecipeListDetail.as_view(), name='details'),
+    path('<int:pk>/', RecipeUpdateDeleteView.as_view(), name='update'),
+
 ]
